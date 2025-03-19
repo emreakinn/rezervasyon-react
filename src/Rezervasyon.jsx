@@ -13,7 +13,7 @@ function Rezervasyon() {
     const [step, setStep] = useState(1)
     const [error, setError] = useState('')
 
-    const { addReservation } = useContext(ReservationsContext);
+    const { reservations, addReservation } = useContext(ReservationsContext);
 
     const handleİleri = () => {
         if (step === 1 && date === '') {
@@ -28,19 +28,33 @@ function Rezervasyon() {
 
     const handleTamamla = () => {
         if (name && surname && phone && table) {
-            addReservation({
-                id: Date.now(),
-                date: date,
-                name: name,
-                surname: surname,
-                phone: phone,
-                table: table
-            })
-            setName('')
-            setSurname('')
-            setPhone('')
-            setTable('')
-            setError('Rezervasyonunuz Oluşturuldu!')
+            if (!isNaN(phone) && phone.length == 10 && !isNaN(table) && Number(table) <= 10) {
+
+                const reserveEdildi = reservations.some((reservation) => reservation.date === date && reservation.table === table)
+
+                if (reserveEdildi) {
+                    setError('Daha önce bu tarihte bu masa rezerve edildi')
+                    return
+                }
+
+                addReservation({
+                    id: Date.now(),
+                    date: date,
+                    name: name,
+                    surname: surname,
+                    phone: phone,
+                    table: table
+                })
+                setName('')
+                setSurname('')
+                setPhone('')
+                setTable('')
+                setError('Rezervasyonunuz Oluşturuldu!')
+            } else {
+                setError('Hata varrrr')
+            }
+        } else {
+            setError('haataa')
         }
     }
 
@@ -48,7 +62,7 @@ function Rezervasyon() {
         <div className='w-10/12 h-[70vh] bg-[url("./assets/arkaplan.jpg")] text-amber-100 m-auto mt-1 flex flex-col justify-center bg-amber-100 rounded-bl-4xl rounded-br-4xl items-center'>
             <h1 className='text-6xl'>"Lezzetli Anlar Burada!"</h1>
 
-            <form action="" method="post" className='flex flex-col gap-5 my-10 w-4/12'>
+            <form action="" method="post" className='flex flex-col gap-5 my-10 w-5/12'>
 
                 {step === 1 && (
 

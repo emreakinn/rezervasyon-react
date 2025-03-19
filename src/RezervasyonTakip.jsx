@@ -6,24 +6,38 @@ function RezervasyonTakip() {
     const { reservations } = useContext(ReservationsContext);
 
     return (
-        <div className="w-10/12 m-auto text-amber-100 mt-10">
+        <div className='w-10/12 h-[70vh] bg-[url("./assets/arkaplan.jpg")] text-amber-100 m-auto mt-1 flex flex-col justify-center bg-amber-100 rounded-bl-4xl rounded-br-4xl items-center'>
             <h1 className="text-4xl mb-5">Rezervasyon Takip</h1>
             {reservations.length === 0 ? (
                 <p>Henüz rezervasyon yok.</p>
             ) : (
-                <ul>
-                    {reservations.map((rez) => (
-                        <li key={rez.id} className="border p-3 mb-2 bg-gray-800 rounded-lg">
-                            <p><strong>Tarih:</strong> {rez.date}</p>
-                            <p><strong>İsim:</strong> {rez.name} {rez.surname}</p>
-                            <p><strong>Telefon:</strong> {rez.phone}</p>
-                            <p><strong>Masa:</strong> {rez.table}</p>
-                        </li>
-                    ))}
-                </ul>
+
+                <div className="max-h-[450px] overflow-y-auto w-8/12 border-2 bg-gray-900 border-amber-100 text-center">
+                    <table className='w-full'>
+                        <thead className='border-b-2 border-amber-100'>
+                            <tr>
+                                <th className='py-2'>Tarih</th>
+                                <th className='py-2'>İsim Soyisim</th>
+                                <th className='py-2'>Telofon</th>
+                                <th className='py-2'>Masa</th>
+                            </tr>
+                        </thead>
+                        {reservations.map((reserve, index) => (
+                            <tbody key={index}>
+                                <tr>
+                                    <td className='py-2'>{reserve.date}</td>
+                                    <td className='py-2'>{reserve.name} {reserve.surname}</td>
+                                    <td className='py-2'>{reserve.phone}</td>
+                                    <td className='py-2'>{reserve.table}</td>
+                                </tr>
+                            </tbody>
+                        ))}
+                    </table>
+                </div>
             )}
         </div>
     )
 }
 
 export default RezervasyonTakip
+
