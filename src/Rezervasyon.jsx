@@ -51,10 +51,10 @@ function Rezervasyon() {
                 setTable('')
                 setError('Rezervasyonunuz Oluşturuldu!')
             } else {
-                setError('Hata varrrr')
+                setError('Telefon numarası yanlış girildi. Masa numarası 10 dan düşük olmalı')
             }
         } else {
-            setError('haataa')
+            setError('Bütün bilgileri eksiksiz doldurun')
         }
     }
 
