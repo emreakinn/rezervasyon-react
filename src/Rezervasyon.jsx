@@ -59,34 +59,34 @@ function Rezervasyon() {
     }
 
     return (
-        <div className='w-10/12 h-[70vh] bg-[url("./assets/arkaplan.jpg")] text-amber-100 m-auto mt-1 flex flex-col justify-center bg-amber-100 rounded-bl-4xl rounded-br-4xl items-center'>
-            <h1 className='text-6xl'>"Lezzetli Anlar Burada!"</h1>
+        <div className='lg:w-10/12 w-full h-[70vh] bg-[url("./assets/arkaplan.jpg")] text-amber-100 m-auto mt-1 flex flex-col justify-center bg-amber-100 rounded-bl-4xl rounded-br-4xl items-center'>
+            <h1 className='lg:text-6xl text-3xl'>"Lezzetli Anlar Burada!"</h1>
 
-            <form action="" method="post" className='flex flex-col gap-5 my-10 w-5/12'>
+            <form action="" method="post" className='flex flex-col gap-5 my-10 lg:w-8/12 xl:w-6/12 w-10/12'>
 
                 {step === 1 && (
 
                     <div className='flex flex-col items-center gap-10'>
-                        <h3 className='text-3xl'>Rezervasyon Tarihi Belirle</h3>
+                        <h3 className='lg:text-3xl text-lg'>Rezervasyon Tarihi Belirle</h3>
                         <input
                             type="date"
                             id="tarih"
                             value={date}
                             onChange={(e) => setDate(e.target.value)}
-                            className='w-3/6 tarih flex justify-center border-4 border-amber-100 bg-gray-900 py-5 rounded-2xl outline-none'
+                            className='lg:w-3/6 w-3/6 flex justify-center border-4 border-amber-100 bg-gray-900 py-5 rounded-2xl outline-none'
                         />
                     </div>
                 )}
                 {step === 2 && (
                     <div className='flex flex-wrap justify-evenly gap-5'>
-                        <h3 className='text-3xl'>Rezervasyon Bilgilerini Doldur</h3>
+                        <h3 className='md:text-3xl lg:text-2xl xl:text-4xl text-2xl'>Rezervasyon Bilgilerini Doldur</h3>
                         <input
                             type="text"
                             id="isim"
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                             placeholder='Adınız'
-                            className='w-5/12 border-4 border-amber-100 bg-gray-900 py-5 pl-5 rounded-2xl outline-none'
+                            className='w-5/12 border-4 border-amber-100 bg-gray-900 py-5 lg:pl-5 pl-2 rounded-2xl outline-none lg:placeholder:text-md placeholder:text-sm'
                         />
                         <input
                             type="text"
@@ -94,7 +94,7 @@ function Rezervasyon() {
                             value={surname}
                             onChange={(e) => setSurname(e.target.value)}
                             placeholder='Soy Adınız'
-                            className='w-5/12 border-4 border-amber-100 bg-gray-900 py-5 pl-5 rounded-2xl outline-none'
+                            className='w-5/12 border-4 border-amber-100 bg-gray-900 py-5 lg:pl-5 pl-2 rounded-2xl outline-none lg:placeholder:text-md placeholder:text-sm'
                         />
                         <input
                             type="text"
@@ -102,7 +102,7 @@ function Rezervasyon() {
                             value={phone}
                             onChange={(e) => setPhone(e.target.value)}
                             placeholder='Telefon Numaranız'
-                            className='w-5/12 border-4 border-amber-100 bg-gray-900 py-5 pl-5 rounded-2xl outline-none'
+                            className='w-5/12 border-4 border-amber-100 bg-gray-900 py-5 lg:pl-5 pl-2 rounded-2xl outline-none lg:placeholder:text-md placeholder:text-sm'
                         />
                         <input
                             type="text"
@@ -110,7 +110,7 @@ function Rezervasyon() {
                             value={table}
                             onChange={(e) => setTable(e.target.value)}
                             placeholder='Masa Numarası'
-                            className='w-5/12 border-4 border-amber-100 bg-gray-900 py-5 pl-5 rounded-2xl outline-none'
+                            className='w-5/12 border-4 border-amber-100 bg-gray-900 py-5 lg:pl-5 pl-2 rounded-2xl outline-none lg:placeholder:text-md placeholder:text-sm'
                         />
                     </div>
 
@@ -122,7 +122,7 @@ function Rezervasyon() {
             {step === 1 && (
                 <button
                     onClick={handleİleri}
-                    className='w-2/12 bg-gray-900 border-4 border-amber-100 py-5 rounded-xl text-center text-2xl cursor-pointer'
+                    className='lg:w-3/12 w-4/12 bg-gray-900 border-4 border-amber-100 py-5 rounded-xl text-center lg:text-2xl text-lg cursor-pointer'
                 >
                     İleri
                 </button>
@@ -130,7 +130,7 @@ function Rezervasyon() {
             {step === 2 &&
                 <button
                     onClick={handleTamamla}
-                    className='w-2/12 bg-gray-900 border-4 border-amber-100 py-5 rounded-xl text-center text-xl cursor-pointer'
+                    className='lg:w-4/12 w-6/12 bg-gray-900 border-4 border-amber-100 py-5 rounded-xl text-center lg:text-xl text-md cursor-pointer'
                 >
                     Rezervasyonu Tamamla
                 </button>}
